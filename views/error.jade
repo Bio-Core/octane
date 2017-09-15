@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  .container
+    .panel.panel-default.panel-body
+      .row
+        .text-center
+          h2 Have you seen this hydrocarbon? 
+      .row
+        img.center-block(src="images/octane.png")
+      .row
+        .text-center
+          p If so, please call 
+            b #{error.status}
+            |, we're all very worried.  
+    // Only show the stack trace if in development
+    if env != 'production'
+      pre #{error.stack}

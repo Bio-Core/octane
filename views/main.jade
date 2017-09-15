@@ -1,0 +1,19 @@
+extends layout 
+
+block content 
+  .container
+    form(method="post" action="/octane/login")
+      .row
+        .col-md-4.col-md-offset-4.col-xs-8.col-xs-offset-2
+          div(class="form-group")
+            input(type="text" class="form-control" name="username" placeholder="Email" maxlength="25" autofocus)
+      .row
+        .col-md-4.col-md-offset-4.col-xs-8.col-xs-offset-2
+          div(class="form-group")
+            input(type="password" class="form-control" name="password" placeholder="Password")
+      div(class="text-center")
+        button(class="btn btn-success" type="submit") Login
+        br
+        br
+        p
+          a(href="/octane/register") Create an account

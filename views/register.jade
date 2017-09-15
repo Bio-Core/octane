@@ -1,0 +1,39 @@
+extends layout 
+
+block content 
+  if errors
+    each error in errors
+      .row
+        .col-md-4.col-md-offset-4.col-xs-8.col-xs-offset-2
+          .alert.alert-danger.alert-dismissable.fade-in(role="alert")
+            button(type="button" class="close" data-dismiss="alert")
+              span x
+            |#{error.msg}
+  .container
+    form(method="post" action="/octane/register")
+      .row
+        .col-md-4.col-md-offset-4.col-xs-8.col-xs-offset-2
+          div(class="form-group")
+            input(type="text" class="form-control" placeholder="First Name" name="first" maxlength="50")
+      .row
+        .col-md-4.col-md-offset-4.col-xs-8.col-xs-offset-2
+          div(class="form-group")
+            input(type="text" class="form-control" placeholder="Last Name" name="last" maxlength="50")
+      .row
+        .col-md-4.col-md-offset-4.col-xs-8.col-xs-offset-2
+          div(class="form-group")
+            input(type="text" class="form-control" placeholder="Email" name="email" maxlength="25")
+      .row
+        .col-md-4.col-md-offset-4.col-xs-8.col-xs-offset-2
+          div(class="form-group")
+            input(type="password" class="form-control" placeholder="Password" name="password")
+      .row
+        .col-md-4.col-md-offset-4.col-xs-8.col-xs-offset-2
+          div(class="form-group")
+            input(type="password" class="form-control" placeholder="Confirm Password" name="password2")
+      div(class="text-center")
+        button(class="btn btn-success" type="submit") Register
+    br
+    .text-center 
+      p
+        a(href='/octane/login') Already have access? 

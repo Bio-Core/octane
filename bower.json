@@ -1,0 +1,43 @@
+{
+  "name": "octane",
+  "description": "Secure file uploader",
+  "main": "app.js",
+  "authors": [
+    "Hernando Castano"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Secure",
+    "Fun",
+    "Filez",
+    "This",
+    "AMAZING",
+    "file",
+    "uploader",
+    "will",
+    "blow",
+    "your",
+    "mind",
+    "#5",
+    "was",
+    "crazy",
+    "you",
+    "won't",
+    "believe",
+    "these",
+    "files"
+  ],
+  "homepage": "pmgenomics.ca/octane",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-file-upload": "^2.3.4",
+    "angular": "^1.5.8"
+  }
+}

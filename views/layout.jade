@@ -1,0 +1,161 @@
+doctype html
+html
+  head
+    title Octane Uploader
+    
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+    link(rel="stylesheet" href="stylesheets/bootstrap.min.css")
+    link(rel="stylesheet" href="font-awesome/css/font-awesome.min.css")
+    link(rel='stylesheet' href='stylesheets/style2.css')
+
+    link(href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500" rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet")
+
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js")
+
+  //-   // Icon made by Freepik (http://www.flaticon.com/authors/freepik')
+  //-   link(rel="icon" href="images/octane-icon.png")
+
+  //-   // Latest compiled and minified CSS
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7', crossorigin='anonymous')
+
+  //-   //Flat UI CDN
+  //-   link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.3.0/css/flat-ui.css')
+
+
+  body(ng-app="octane" ng-controller="MainCtrl" ng-cloak)
+
+    //- Mobile Topbar
+    div(id="mobile-topbar" class="visible-xs")
+      img(id="logo" src="images/octane-motion2.png")
+      div(id="branding") Octane
+      i(id="mobile-menu-trigger" class="fa fa-bars")
+
+    div(id="mobile-topbar-expanded" class="visible-xs collapsed-container")
+      h3(id="mobile-account-trigger")
+        | Account
+        i(class="fa fa-angle-down" aria-hidden="true")
+
+      div(id="mobile-account-container" class="collapsed-container")
+        p 
+          a(href="https://oa.pmgenomics.ca/auth/realms/UHN/account" target="_blank") Account Settings
+        p
+          a(href="/octane/logout" target="_blank") Logout
+
+      h3(id="mobile-instruction-trigger")
+        | Instructions
+        i(class="fa fa-angle-down" aria-hidden="true")
+
+      div(id="mobile-instruction-container" class="collapsed-container")
+        h5 Uploading Files
+        p To upload a file, either drag it in into the 'file upload' box or click the 'Browse' button. The file you upload will be stored in a user-specific directory. A list of files that have been uploaded in the current session is shown in the bottom half of the window. If you upload the same named file from a previous session, there is currently no warning and the new file will overwrite the old file. If you would like a list of what you have already uploaded, please let us know and we will send that to you on email. Currently, we do not display the names of files uploaded previously as an extra security measure. To cancel the upload of a file or remove an uploaded file from the queue, simply click on the 'X' right of the file name in the 'Uploads' box.
+
+        h5 Account Information
+        p To change your password or any other information associated with your account, click on your name in the top right corner of the screen and choose 'Account Settings'.
+        p To logout click on your name in the top right corner of the screen and click 'Logout'.
+
+      h3(id="mobile-about-trigger")
+        | About Octane
+        i(class="fa fa-angle-down" aria-hidden="true")
+
+      div(id="mobile-about-container" class="collapsed-container")
+        p Octane is a file uploader run by the Princess Margaret Bioinformatics Core. Federated authentication is run locally and files are stored in user-specific directories.
+
+      h3(id="mobile-contact-trigger")
+        | Contact
+        i(class="fa fa-angle-down" aria-hidden="true")
+
+      div(id="mobile-contact-container" class="collapsed-container")
+        h5 Issues or questions?
+        p Email Carl Virtanen at cvirtane@uhnresearch.ca for assistance.
+
+
+    //- Desktop Topbar
+    header(id="" class="hidden-xs")
+      div(id="topbar")
+        img(id="logo" src="images/octane-motion2.png")
+        div(class="content-container")
+          div(class="row")
+            div(id="branding" class="col-xs-2")
+              | Octane
+
+            div(id="user-profile" class="col-xs-5 pull-right")
+              div(class="dropdown")
+                span #{name}
+                i(class="fa fa-angle-down" aria-hidden="true")
+
+          div(id="account-options")
+            a(href="https://oa.pmgenomics.ca/auth/realms/UHN/account" target="_blank")
+              h3 Account Settings
+            a(href="/octane/logout")
+              h3 Logout
+              
+
+
+      div(id="menu")
+        div(class="content-container")
+          ul
+            li(id="instructions-trigger")
+              a(href="#") Instructions
+            li(id="about-trigger")
+              a(href="#") About Octane
+            li(id="contact-trigger")
+              a(href="#") Contact
+
+          i(id="close-trigger" class="fa fa-times" aria-hidden="true")
+
+
+      div(id="menu-dropdown")
+        div(class="content-container")
+          div(id="instructions")
+            h3 Instructions
+            div(class="row")
+              div(class="col-sm-6")
+                h4 Uploading Files
+                p To upload a file, either drag in into the 'file upload' box or click the 'Browse' button. The file stored in a user-specific  directory.
+                p To cancel the upload of a file or remove an uploaded file from the queue, simply click on the 'X' right of the file name in the 'Uploads' box.
+
+              div(class="col-sm-6")
+                h4 Account Information
+                p To change your password or any other information associated with your account, click on your name in the top right corner of the screen and choose 'Account Settings'.
+                p To logout click on your name in the top right corner of the screen and click 'Logout'.
+
+          div(id="about")
+            h3 About Octane
+            p
+              | Octane is a file uploader run by the Princess Margaret Bioinformatics Core. Federated authentication is run locally and files are stored in user-specific directories.
+
+            div(class="row")
+              a(href="http://www.uhn.ca/PrincessMargaret" target="_blank")
+                img(src="images/PMCC-logo.png")
+
+              a(href="https://oicr.on.ca/" target="_blank")
+                img(src="images/oicr-logo.gif")
+
+          div(id="contact")
+            h3 Contact
+            h4 Issues or questions?
+            p Email Qun Jin at qjin@uhnresearch.ca for assistance.
+
+
+    div(id="main-body" style="overflow-y: scroll;")
+      block content
+
+  // JQuery 
+  script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js")
+
+  // Latest compiled and minified JavaScript
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js', integrity='sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS', crossorigin='anonymous')
+
+  //Angular Dependencies 
+  script(src="angular/angular.min.js")
+  script(src="angular-file-upload/dist/angular-file-upload.min.js")
+  script(src="javascripts/angularApp.js")
+  script(src="javascripts/script.js")
+
+
+
+
+

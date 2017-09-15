@@ -1,0 +1,7 @@
+{
+  "realm": "UHN",
+  "auth-server-url": "https://oa.pmgenomics.ca/auth",
+  "ssl-required": "external",
+  "resource": "octane",
+  "public-client": true
+}

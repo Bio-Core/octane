@@ -1,0 +1,13 @@
+node_modules
+bower_components
+uploads/*
+!.gitkeep
+
+.DS_STORE
+*.swp
+*.swo
+*.pem
+*.csr
+
+client_id.txt
+client_secret.txt

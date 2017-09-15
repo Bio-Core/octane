@@ -1,0 +1,45 @@
+extends layout
+
+block content
+
+  div(id="page-body")
+    div(class="content-container")
+      div(class="file-error alert alert-warning alert-dismissable" ng-show="showError" ng-class="{fade: doFade}") {{errorMessage}}
+      div(id="file-uploader" ng-file-over="" nv-file-drop="" uploader="uploader" style="border: 3px dashed #d8d8d8; background-color:#f4f4f4; margin-bottom: 80px; text-align: center; padding: 50px")
+        img(src="images/upload-icon.svg" style="padding-bottom: 15px")
+        h3 Simply drag and drop files here or 
+          label
+            input(type="file" nv-file-select="" uploader="uploader" multiple="" nv-file-drop="")
+            span 
+              b 
+                u browse
+          |  to upload.
+          
+        small Allowed file types: vcf, zip, doc, docx, xls, xlsx, gz and plaintext (txt)
+
+      div(class="row")
+        div(class="col-sm-6 col-md-4 col-lg-3" ng-model="uploader.queue" ng-repeat="item in uploader.queue")
+          div(class="file uploading")
+            i(class="fa fa-file-text-o file-image" aria-hidden="true")
+            h3 {{item.file.name}}
+            h5(class="file-size") {{item.file.size/1024/1024|number:2}} MB
+            div(class="divider")
+            div(class="progress")
+              div(class="progress-bar" role="progressbar" ng-style="{'width': item.progress + '%'}")
+            span(class="error-msg" ng-show="item.isCancel") 
+              i(class="fa fa-exclamation-circle" aria-hidden="true") | File upload cancelled. 
+            span(class="error-msg" ng-show="item.isError && !item.isTimeout") 
+              i(class="fa fa-exclamation-circle" aria-hidden="true") 
+              Error while uploading.
+            span(class="error-msg" ng-show="item.fileExists") 
+              i(class="fa fa-exclamation-circle" aria-hidden="true") 
+              | File with this name already exists. 
+            span(class="error-msg" ng-show="item.isTimeout && !item.isCancel && !item.fileExists") 
+              i(class="fa fa-exclamation-circle" aria-hidden="true") 
+              | Refresh page and re-upload. 
+            span(class="success-msg" ng-show="item.isSuccess")
+              i(class="fa fa-check-circle" aria-hidden="true")
+              | Completed
+            div(class="file-options" ng-click="item.remove();")
+              i(class="fa fa-trash" aria-hidden="true")
+              h5 Delete

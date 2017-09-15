@@ -1,0 +1,38 @@
+overview of slides
+
+so far you've heard a lot about some of the promises that applied genetic testing and a personalized approach to medicine can offer, and you'll be hearing more as the day moves on. but for now i want talk about something that is fundamental to all of this: data. 
+DATA
+and COMPUTATION
+and specifically, the challenges that this presents, from the shear volume of data to the ability to perform useful computations IE how do we handle this data, and what do we do on the ground to make sure the data is handled properly, how do we extract something from it.
+Graph of explosion of data,
+slide of size of some of our current databases, statistics
+
+HOw do we deal with this and stay on top of the so called "data tsunami"
+how do we manage this? slide of logos eg apache hadoop sge etc
+and this allows us to present useful information to biologists (slide of our tools)
+show some of the tools from the mundane (genefu to show a quick lookup), to more complex (pubmed equation) or just the easier to navigate items
+
+overview of HPC, what is it, how much do we have currently
+history of computational services for bioinformatics
+start with microarray, picture of old cluster, some clusterings of array data
+
+patient journey: from sample processing to computation, show how the sample
+moves from DNA to bits and bytes, how that is moved across the cluster
+using a scheduler "brain" that shows the amount of usage on each node and logically picks a free one. now add a patient, now add 10, now add hundreds and you get the point, the system has to be scaled up to handle 
+this amount of workflow
+with our current cluster (size, pciture, storage amount) we can handle research sequencing for projects in labs. but what happens if we decide to sequence every patient coming in the door at PMH (or UHN)
+but as you scale up to handle capacity you also realize that a lot of your computation has "overhead" because much of the computation is "burst" usage
+show a picture of a wave
+so once you scale up to handle your workflow with guarantees on time, you have excess capacity. this is a problem
+
+but its not just our problem
+show picture of desert island
+mike and i  discussed our mutual problem, and decided it was time to really think about fixing this properly, because this wasn't a new problem and people had thought about it before of course, but in the genomics era it was a really pressing "mission critical" issue to resolve, and we decided to go about planning how we would consolidate some of our resources so that we could both benefit.
+running big HPC infrastructure is complex it requires a large data centre footprint, systems admins, power, etc
+now in canada we have a large network of HPC run under the umbrella of an organization called Compute Canada (show logo, landscape). now this is a great group but unfortunately for hospitals it is a challenge for us to join them. one thing is that these systems are shared across many departments. in their model our infrastrucutre could possibly be shared with a climate modeler, and so if we need to process data coming from gen
+
+HPC4Health
+what is hpc4health, sharing model
+
+
+so HPC4health will be the first HPC system in compute Canadas network that is based on  shared cloud model between two health care institutions that 
